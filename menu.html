@@ -21,7 +21,7 @@
     <script>
         // Arreglo con los datos de los botones
         const buttonsData = [
-            { file: '1registro_audiencias.xls', icon: 'fa-calendar-check', text: 'Registro de Audiencias' },
+            { file: 'AUDIENCIAS2025.xlsm', icon: 'fa-calendar-check', text: 'Registro de Audiencias' },
             { file: 'prision_preventiva.xls', icon: 'fa-gavel', text: 'Prisión Preventiva' },
             { file: 'libro_gobierno.xls', icon: 'fa-book', text: 'Libro de Gobierno' },
             { file: 'orden_comparecencia.xls', icon: 'fa-file-signature', text: 'Orden de Comparecencia' },
@@ -65,8 +65,9 @@
                 // Redirigir al login
                 window.location.href = 'index.html';
             } else if (fileName) {
-                alert(`Abriendo archivo: ${fileName}`);
-                // Aquí puedes agregar lógica para abrir archivos reales
+                const filePath = `file:///C:/Users/Usuario/Documents/python/Juzgado/files/${fileName}`;
+                // Abre el archivo en el navegador, lo cual intentará abrir con Excel
+                window.open(filePath, '_blank'); 
             }
         }
     </script>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audiencias</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilo para la tabla */
+        table {
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            text-align: center;
+        }
+        th {
+            background-color: #f8f9fa;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4 text-center">Control de Audiencias</h1>
+
+        <!-- Tabla de audiencias -->
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Procedimiento</th>
+                    <th>Enero</th>
+                    <th>Febrero</th>
+                    <th>Marzo</th>
+                    <th>Abril</th>
+                    <th>Mayo</th>
+                    <th>Junio</th>
+                    <th>Julio</th>
+                    <th>Agosto</th>
+                    <th>Septiembre</th>
+                    <th>Octubre</th>
+                    <th>Noviembre</th>
+                    <th>Diciembre</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CONTROL DE DETENCIÓN</td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0" readonly></td>
+                </tr>
+                <tr>
+                    <td>FORMULACIÓN DE IMPUTACIÓN</td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0" readonly></td>
+                </tr>
+                <!-- Puedes agregar más filas de la misma manera -->
+                <tr>
+                    <td>FORMULACIÓN DE IMPUTACIÓN POR COMPARECENCIA</td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0"></td>
+                    <td><input type="number" class="form-control" value="0" readonly></td>
+                </tr>
+                <!-- Agregar más filas según sea necesario -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Función para calcular el total
+        const inputs = document.querySelectorAll('input[type="number"]');
+        
+        inputs.forEach(input => {
+            input.addEventListener('input', updateTotal);
+        });
+
+        function updateTotal() {
+            const rows = document.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                let total = 0;
+                const cells = row.querySelectorAll('td input');
+                cells.forEach(cell => {
+                    if (!cell.readOnly) {
+                        total += parseInt(cell.value) || 0;
+                    }
+                });
+                row.querySelector('td:last-child input').value = total;
+            });
+        }
+    </script>
+</body>
+</html>
