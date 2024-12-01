@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juzgado Penal Distrito XI</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
@@ -20,24 +19,24 @@
     <script>
         // Arreglo con los datos de los botones
         const buttonsData = [
-            { file: 'registro_audiencias.xls', icon: 'fa-calendar-check', text: 'Registro de Audiencias' },
-            { file: 'prision_preventiva.xls', icon: 'fa-gavel', text: 'Prisión Preventiva' },
-            { file: 'libro_gobierno.xls', icon: 'fa-book', text: 'Libro de Gobierno' },
-            { file: 'orden_comparecencia.xls', icon: 'fa-file-signature', text: 'Orden de Comparecencia' },
-            { file: 'orden_aprehension.xls', icon: 'fa-file', text: 'Orden de Aprehensión' },
-            { file: 'causas_penales.xls', icon: 'fa-scale-balanced', text: 'Causas Penales' },
-            { file: 'sobreseimiento.xls', icon: 'fa-clipboard-check', text: 'Sobreselimiento' },
-            { file: 'sentencias.xls', icon: 'fa-file-contract', text: 'Sentencias' },
-            { file: 'suspension_condicional.xls', icon: 'fa-stopwatch', text: 'Suspensión Condicional' },
-            { file: 'medidas_cautelares.xls', icon: 'fa-shield', text: 'Medidas Cautelares' },
-            { file: 'portas_dvd.xls', icon: 'fa-video', text: 'Portas DVD' },
-            { file: 'sobres_dvd.xls', icon: 'fa-folder', text: 'Sobres DVD' },
-            { file: 'inventario.xls', icon: 'fa-box', text: 'Inventario' },
-            { file: 'imputados.xls', icon: 'fa-user-injured', text: 'Imputados' },
-            { file: 'contraseñas.xls', icon: 'fa-lock', text: 'Contraseñas' },
-            { file: 'estadisticas.xls', icon: 'fa-chart-bar', text: 'Estadísticas' },
-            { file: 'audiencias_causas.xls', icon: 'fa-list', text: 'Audiencias por Causas' },
-            { file: null, icon: 'fa-sign-out-alt', text: 'Cerrar Sesión', action: 'logout' },
+            { file: 'registro_audiencias.xls', icon: '1.jpg', text: 'Registro de Audiencias' },
+            { file: 'prision_preventiva.xls', icon: '2.jpg', text: 'Prisión Preventiva' },
+            { file: 'libro_gobierno.xls', icon: '3.jpg', text: 'Libro de Gobierno' },
+            { file: 'orden_comparecencia.xls', icon: '4.jpg', text: 'Orden de Comparecencia' },
+            { file: 'orden_aprehension.xls', icon: '5.jpg', text: 'Orden de Aprehensión' },
+            { file: 'causas_penales.xls', icon: '6.jpg', text: 'Causas Penales' },
+            { file: 'sobreseimiento.xls', icon: '7.jpg', text: 'Sobreselimiento' },
+            { file: 'sentencias.xls', icon: '8.jpg', text: 'Sentencias' },
+            { file: 'suspension_condicional.xls', icon: '9.jpg', text: 'Suspensión Condicional' },
+            { file: 'medidas_cautelares.xls', icon: '10.jpg', text: 'Medidas Cautelares' },
+            { file: 'portas_dvd.xls', icon: '11.jpg', text: 'Portas DVD' },
+            { file: 'sobres_dvd.xls', icon: '12.jpg', text: 'Sobres DVD' },
+            { file: 'inventario.xls', icon: '13.jpg', text: 'Inventario' },
+            { file: 'imputados.xls', icon: '14.jpg', text: 'Imputados' },
+            { file: 'contraseñas.xls', icon: '15.jpg', text: 'Contraseñas' },
+            { file: 'estadisticas.xls', icon: '16.jpg', text: 'Estadísticas' },
+            { file: 'audiencias_causas.xls', icon: '17.jpg', text: 'Audiencias por Causas' },
+            { file: null, icon: 'icono18.jpg', text: 'Cerrar Sesión', action: 'logout' },
         ];
 
         // Generar los botones dinámicamente
@@ -47,8 +46,11 @@
             buttonCard.className = 'button-card';
             buttonCard.setAttribute('onclick', `handleClick('${button.file}', '${button.action || ''}')`);
 
-            const icon = document.createElement('i');
-            icon.className = `fa-solid ${button.icon}`;
+            // Crear la imagen del ícono
+            const icon = document.createElement('img');
+            icon.src = `ICONOS/${button.icon}`;  // Ruta de los íconos en JPG
+            icon.alt = button.text;
+            icon.className = 'button-icon';
             buttonCard.appendChild(icon);
 
             const span = document.createElement('span');
