@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juzgado Penal Distrito XI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Juzgado Penal Distrito XI</h1>
+            <h2>Colotlán, Jalisco</h2>
+        </div>
+    </header>
+    <main>
+        <section class="buttons-section" id="buttonsSection"></section>
+    </main>
+    <script>
+        // Arreglo con los datos de los botones
+        const buttonsData = [
+            { file: 'registro_audiencias.xls', icon: 'fa-calendar-check', text: 'Registro de Audiencias' },
+            { file: 'prision_preventiva.xls', icon: 'fa-gavel', text: 'Prisión Preventiva' },
+            { file: 'libro_gobierno.xls', icon: 'fa-book', text: 'Libro de Gobierno' },
+            { file: 'orden_comparecencia.xls', icon: 'fa-file-signature', text: 'Orden de Comparecencia' },
+            { file: 'orden_aprehension.xls', icon: 'fa-file', text: 'Orden de Aprehensión' },
+            { file: 'causas_penales.xls', icon: 'fa-scale-balanced', text: 'Causas Penales' },
+            { file: 'sobreselimiento.xls', icon: 'fa-clipboard-check', text: 'Sobreselimiento' },
+            { file: 'sentencias.xls', icon: 'fa-file-contract', text: 'Sentencias' },
+            { file: 'suspension_condicional.xls', icon: 'fa-stopwatch', text: 'Suspensión Condicional' },
+            { file: 'medidas_cautelares.xls', icon: 'fa-shield', text: 'Medidas Cautelares' },
+            { file: 'portas_dvd.xls', icon: 'fa-video', text: 'Portas DVD' },
+            { file: 'sobres_dvd.xls', icon: 'fa-folder', text: 'Sobres DVD' },
+            { file: 'inventario.xls', icon: 'fa-box', text: 'Inventario' },
+            { file: 'imputados.xls', icon: 'fa-user-injured', text: 'Imputados' },
+            { file: 'contraseñas.xls', icon: 'fa-lock', text: 'Contraseñas' },
+            { file: 'estadisticas.xls', icon: 'fa-chart-bar', text: 'Estadísticas' },
+            { file: 'audiencias_causas.xls', icon: 'fa-list', text: 'Audiencias por Causas' },
+            { file: null, icon: 'fa-sign-out-alt', text: 'Cerrar Sesión', action: 'logout' },
+        ];
+
+        // Generar los botones dinámicamente
+        const buttonsSection = document.getElementById('buttonsSection');
+        buttonsData.forEach(button => {
+            const buttonCard = document.createElement('div');
+            buttonCard.className = 'button-card';
+            buttonCard.setAttribute('onclick', `handleClick('${button.file}', '${button.action || ''}')`);
+
+            const icon = document.createElement('i');
+            icon.className = `fa-solid ${button.icon}`;
+            buttonCard.appendChild(icon);
+
+            const span = document.createElement('span');
+            span.textContent = button.text;
+            buttonCard.appendChild(span);
+
+            buttonsSection.appendChild(buttonCard);
+        });
+
+        // Manejar clics en los botones
+        function handleClick(fileName, action) {
+            if (action === 'logout') {
+                // Redirigir al login
+                window.location.href = 'index.html';
+            } else if (fileName) {
+                alert(`Abriendo archivo: ${fileName}`);
+                // Aquí puedes agregar lógica para abrir archivos reales
+            }
+        }
+    </script>
+</body>
+</html>
